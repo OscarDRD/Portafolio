@@ -1,0 +1,45 @@
+---
+import type { CollectionEntry } from 'astro:content';
+
+interface Props {
+	project: CollectionEntry<'projects'>;
+}
+
+const { project } = Astro.props;
+const { title, description, tags, githubLink, docsLink } = project.data;
+const { Content } = await project.render();
+---
+
+<article class="bg-slate-900/50 border border-slate-800 rounded-xl p-6 hover:shadow-2xl hover:shadow-blue-500/10 hover:-translate-y-2 transition-all duration-300 group relative overflow-hidden backdrop-blur-sm">
+	<div class="absolute top-0 left-0 w-1 h-full bg-gradient-to-b from-blue-500 to-purple-600 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+	
+	<div class="flex justify-between items-start mb-4">
+		<h3 class="text-2xl font-bold text-slate-100 group-hover:text-blue-400 transition-colors">{title}</h3>
+		<div class="flex gap-3">
+			<a href={githubLink} target="_blank" rel="noopener noreferrer" class="text-slate-400 hover:text-white hover:scale-110 transition transform" title="Ver en GitHub" aria-label="Ver código fuente en GitHub">
+				<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path></svg>
+			</a>
+			{docsLink && (
+				<a href={docsLink} target="_blank" rel="noopener noreferrer" class="text-slate-400 hover:text-blue-400 hover:scale-110 transition transform" title="Ver Documentación" aria-label="Ver documentación del proyecto">
+					<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="16" y1="13" x2="8" y2="13"></line><line x1="16" y1="17" x2="8" y2="17"></line><polyline points="10 9 9 9 8 9"></polyline></svg>
+				</a>
+			)}
+		</div>
+	</div>
+	
+	<p class="text-slate-300 mb-4 leading-relaxed">
+		{description}
+	</p>
+
+	<div class="mb-6 prose prose-invert prose-sm max-w-none text-slate-400">
+		<Content />
+	</div>
+
+	<div class="flex flex-wrap gap-2 mt-auto pt-4 border-t border-slate-800">
+		{tags.map((tag) => (
+			<span class="px-3 py-1 bg-blue-950/30 text-blue-300 text-xs font-bold rounded-full font-mono border border-blue-900/50">
+				#{tag}
+			</span>
+		))}
+	</div>
+</article>
