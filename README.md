@@ -1,34 +1,52 @@
 # Portafolio de Backend Developer
 
-Este es un portafolio creado con [Astro](https://astro.build) y [Tailwind CSS](https://tailwindcss.com), diseÃ±ado para mostrar proyectos de Backend.
+Este es un portafolio moderno y minimalista construido con **Astro**, **React**, **Tailwind CSS** y **Framer Motion**. Está diseñado para destacar habilidades de desarrollo Backend, arquitectura de software y diseño de APIs.
 
-## Requisitos Previos
+##  Tecnologías
 
-Necesitas tener instalado [Node.js](https://nodejs.org/) (versiÃ³n 18 o superior) para ejecutar este proyecto.
+- **Astro 5.0**: Framework web rápido y optimizado.
+- **React 19**: Para componentes interactivos de UI.
+- **Tailwind CSS**: Framework de utilidades para estilos.
+- **Aceternity UI**: Componentes de UI modernos (Spotlight, etc.).
+- **Framer Motion**: Librería de animaciones.
+- **Vercel**: Plataforma de despliegue (Configurado para SSR/Serverless).
 
-## InstalaciÃ³n y EjecuciÃ³n
+##  Instalación y Uso
 
-1.  Abre una terminal en la carpeta del proyecto.
-2.  Instala las dependencias:
+1.  **Clonar el repositorio:**
+    `ash
+    git clone <tu-repositorio>
+    cd Portafolio
+    ` 
 
-    ```bash
+2.  **Instalar dependencias:**
+    `ash
     npm install
-    ```
+    ` 
 
-3.  Inicia el servidor de desarrollo:
-
-    ```bash
+3.  **Iniciar servidor de desarrollo:**
+    `ash
     npm run dev
-    ```
+    ` 
 
-4.  Abre tu navegador en `http://localhost:4321` para ver el portafolio.
+4.  **Construir para producción:**
+    `ash
+    npm run build
+    ` 
 
-## Estructura del Proyecto
+##  Despliegue en Vercel
 
--   `src/pages/index.astro`: La pÃ¡gina principal del portafolio.
--   `src/layouts/Layout.astro`: El diseÃ±o base de las pÃ¡ginas.
--   `src/components/`: Componentes reutilizables.
+Este proyecto está pre-configurado para desplegarse en Vercel con el adaptador @astrojs/vercel.
 
-## PersonalizaciÃ³n
+1.  Sube tu código a GitHub.
+2.  Importa el repositorio en [Vercel](https://vercel.com).
+3.  Vercel detectará automáticamente Astro y configurará el build.
+4.  ¡Listo!
 
-Puedes editar el archivo `src/pages/index.astro` para agregar tu informaciÃ³n personal, habilidades y proyectos.
+##  Estructura del Proyecto
+
+- src/pages: Rutas de la aplicación.
+- src/components: Componentes reutilizables (UI, Layouts).
+- src/content: Colecciones de contenido (Proyectos).
+- src/layouts: Plantillas principales.
+- ercel.json: Configuración de headers y caché.
